@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifica Password</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="col-6 col-md-3">
+                <form class="text-center" onsubmit="event.preventDefault(); checkPassword();">
+                    <img class="mb-4" src="logo.png" alt="logo" height="70">
+                    <h1 class="h3 mb-3 fw-normal">Apri l'ultima porta inserendo la chiave corretta!</h1>
+                
+                    <div class="form-floating mb-3">
+                        <input type="password" id="password" class="form-control" placeholder="Password">
+                        <label for="password">chiave</label>
+                    </div>
+                    <button class="btn btn-primary w-100 py-2" type="submit">Inserisci la chiave</button>
+                    <p class="mt-5 mb-3 text-body-secondary">© 2025</p>
+                    <div class="video-container" id="video-container">
+                        <video id="video" autoplay muted>
+                            <source src="door_opening.mp4" type="video/mp4">
+                            Il tuo browser non supporta il tag video.
+                        </video>
+                    </div>
+                    <div class="congrats-container" id="congrats-container">
+                        <div class="congrats-content container">
+                            <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+                                <div class="col-10 col-sm-8 col-lg-6 mx-auto">
+                                    <img src="luce-no-sfondo.png" class="d-block mx-lg-auto img-fluid" alt="Luce" width="700" height="500" loading="lazy">
+                                </div>
+                                <div class="col-lg-6">
+                                    <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Congratulazioni, Pellegrino di Speranza!</h1>
+                                    <p class="lead">Hai aperto tutte le porte e raggiunto la meta finale del nostro giochino speciale per il Giubileo 2025. La tua determinazione e il tuo spirito di avventura ti hanno portato fino a qui. Ogni porta che hai aperto rappresenta un passo verso la speranza e la fede.</p>
+                                    <p></p>
+                                    <p class="lead">Che questo viaggio ti ispiri a continuare a cercare nuove opportunità e a superare ogni sfida con coraggio e speranza. Grazie per aver partecipato e per aver condiviso con noi questo cammino di fede.</p>
+                                    <h3 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Buon Giubileo 2025!</h3>
+                                    <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+                                        <button type="button" class="btn btn-primary btn-lg px-4 me-md-2" onclick="resetPage()">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <p id="message"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            const password = document.getElementById('password').value;
+            const videoContainer = document.getElementById('video-container');
+            const video = document.getElementById('video');
+            const message = document.getElementById('message');
+            const correctPassword = 'password123'; // Cambia questa con la tua password
+
+            if (password === correctPassword) {
+                videoContainer.classList.add('show');
+                video.play();
+                message.textContent = 'Congratulazioni! Ecco il video.';
+                video.onended = function() {
+                    videoContainer.classList.remove('show');
+                    document.getElementById('congrats-container').classList.add('show');
+                };
+            } else {
+                message.textContent = 'Password errata. Riprova.';
+            }
+        }
+
+        function resetPage() {
+            document.getElementById('congrats-container').classList.remove('show');
+            document.getElementById('password').value = '';
+            document.getElementById('message').textContent = '';
+        }
+    </script>
+</body>
+</html>
