@@ -32,7 +32,7 @@
                         <div class="congrats-content container">
                             <div class="row d-flex flex-wrap g-5 py-5">
                                 <div class="image-container col-10 col-sm-8 col-lg-6 mx-auto img-fluid">
-                                    <img src="luce-no-sfondo.png" class="d-block mx-lg-auto" alt="Luce" width="700" height="500">
+                                    <img src="luce-no-sfondo.PNG" class="d-block mx-lg-auto" alt="Luce" width="700" height="500">
                                 </div>
                                 <div class="aside col-lg-6 d-flex flex-column justify-content-center">
                                     <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Congratulazioni, Pellegrino di Speranza!</h1>
@@ -47,6 +47,7 @@
                             </div>
                         </div>
                     </div>
+                    <p id="message" class="text-danger"></p>
                 </form>
             </div>
         </div>
@@ -58,7 +59,7 @@
             const videoContainer = document.getElementById('video-container');
             const video = document.getElementById('video');
             const message = document.getElementById('message');
-            const correctPassword = 'password123'; // Cambia questa con la tua password
+            const correctPassword = 'PELLEGRINIDISPERANZA-MMXXV'; // Cambia questa con la tua password
 
             if (password === correctPassword) {
                 videoContainer.classList.add('show');
@@ -69,6 +70,7 @@
                 };
             } else {
                 message.textContent = 'Password errata. Riprova.';
+                document.getElementById('password').value = ''; // Svuota il campo della password
             }
         }
 
