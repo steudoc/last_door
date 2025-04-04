@@ -32,7 +32,7 @@ Se desideri contribuire a questo progetto, sentiti libero di fare un fork del re
 
 ## Licenza
 
-Questo progetto è rilasciato sotto la licenza MIT. Vedi il file LICENSE per ulteriori dettagli.
+Questo progetto è rilasciato sotto la licenza CC. Vedi il file LICENSE per ulteriori dettagli.
 
 ---
 
